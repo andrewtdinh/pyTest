@@ -2,13 +2,13 @@ import unittest
 
 class Taggerizer:
     #Define an updateable dictionary.  This is according to requirement 1.1
-    tagDict = {NAME: {'Jack', 'Jill'}, NUM: {'one', 'two', 'three', 'nine'}}
+    tagDict = {'NAME': set(['Jack', 'Jill']), 'NUM': set(['one', 'two', 'three', 'nine'])}
 
 
     def __init__(self, inputString):
         self.originalStr = inputString
-        self.taggedTerms = {}
-        self.untaggedTerms = {}
+        self.taggedTerms = set()
+        self.untaggedTerms = set()
         self.replacedStr = []
         terms = self.originalStr.lower().split(' ')
         for term in terms:
@@ -22,8 +22,8 @@ class Taggerizer:
 
     #This will be used later to search for and get the key in the tagDict
     def getDictKey(self, term):
-        for key, set in tagDict.items():
-            if term in set:
+        for key, s in tagDict.items():
+            if term in s:
                 return key
 
     def getOrinalStr(self):
@@ -48,3 +48,9 @@ class Taggerizer:
     #         else:
     #             self.replacedStr.append(term)
     #             self.untaggedTerms.append(term)
+
+myStr = Taggerizer("I am Jack and I am three years old")
+print myStr.getOrinalStr()
+print myStr.getUntaggedStr()
+print myStr.getTagStr()
+print myStr.getSubStr()
