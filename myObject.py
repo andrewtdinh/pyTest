@@ -25,9 +25,10 @@ class Taggerizer:
     #This will be used later to search for and get the key in the tagDict
     def getDictKey(self, term):
         # for key, s in tagDict.items():
-        for key, s in tags.tagDict.items():
-            if term in s:
-                return key
+        # for key, s in tags.tagDict.items():
+        #     if term in s:
+        #         return key
+        return tags.findKey(term)
 
     def getOrinalStr(self):
         return self.originalStr
