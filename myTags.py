@@ -17,3 +17,11 @@ class myDict:
             self.tagDict[key].add(tag)
         else:
             self.tagDict[key] = set([tag])
+
+    # Method to remove an existing tag from tag dictionary
+    def removeTag(self, term):
+        for key, seet in self.tagDict.items():
+            if term in seet:
+                self.tagDict[key].remove(term)
+            else:
+                continue
