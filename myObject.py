@@ -1,9 +1,11 @@
 import unittest
+from myTags import myDict
 
 class Taggerizer:
     #Define an updateable dictionary.  This is according to requirement 1.1
-    tagDict = {'NAME': set(['Jack', 'Jill']), 'NUM': set(['one', 'two', 'three', 'nine'])}
-
+    #tagDict = {'NAME': set(['Jack', 'Jill']), 'NUM': set(['one', 'two', 'three', 'nine'])}
+    global tags
+    tags = myDict()
 
     def __init__(self, inputString):
         self.originalStr = inputString
@@ -14,15 +16,16 @@ class Taggerizer:
         for term in terms:
             foundKey = self.getDictKey(term)
             if foundKey:
-                self.taggedTerms.append(term)
+                self.taggedTerms.add(term)
                 self.replacedStr.append(foundKey)
             else:
                 self.replacedStr.append(term)
-                self.untaggedTerms.append(term)
+                self.untaggedTerms.add(term)
 
     #This will be used later to search for and get the key in the tagDict
     def getDictKey(self, term):
-        for key, s in tagDict.items():
+        # for key, s in tagDict.items():
+        for key, s in tags.tagDict.items():
             if term in s:
                 return key
 
