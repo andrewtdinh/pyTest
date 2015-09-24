@@ -10,3 +10,10 @@ class myDict:
                 return key
             else:
                 continue
+
+    # Method to update the instance variable tagDict.  The key determines which set to add the term to.
+    def addTag(self, key, tag):
+        if key in self.tagDict:
+            self.tagDict[key].add(tag)
+        else:
+            self.tagDict[key] = set([tag])
