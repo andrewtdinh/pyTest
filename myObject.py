@@ -1,4 +1,3 @@
-import unittest
 from myTags import myDict
 
 class Taggerizer:
