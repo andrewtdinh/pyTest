@@ -25,3 +25,7 @@ class myDict:
                 self.tagDict[key].remove(term)
             else:
                 continue
+
+    # Method to remove a key-value pair from the dictionary
+    def removeKeyValuePair(self, key):
+        self.tagDict.pop(key, None)
