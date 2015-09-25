@@ -52,8 +52,19 @@ class Taggerizer:
     def getSubStr(self):
         return ' '.join(self.replacedStr)
 
+    # This method will add a tag to a key-value pair and then re-initialize the object
+    def addTagToDict(self, key, tag):
+        tags.addTag(key, tag)
+        self.__init__(self.originalStr)
+
 myStr = Taggerizer("I am Jack and I am three years old")
 print myStr.getOrinalStr()
 print myStr.getUntaggedStr()
 print myStr.getTagStr()
 print myStr.getSubStr()
+myStr2 = Taggerizer("I'm Jack and I'm three years old")
+myStr2.addTagToDict('CONN', 'and')
+print myStr2.getOrinalStr()
+print myStr2.getUntaggedStr()
+print myStr2.getTagStr()
+print myStr2.getSubStr()
