@@ -57,6 +57,11 @@ class Taggerizer:
         tags.addTag(key, tag)
         self.__init__(self.originalStr)
 
+    # This method will remove a tag from specified key-value pair and then re-initialize the object
+    def removeTagFromDict(self, tag):
+        tags.removeTag(tag)
+        self.__init__(self.originalStr)
+
 myStr = Taggerizer("I am Jack and I am three years old")
 print myStr.getOrinalStr()
 print myStr.getUntaggedStr()
@@ -64,6 +69,11 @@ print myStr.getTagStr()
 print myStr.getSubStr()
 myStr2 = Taggerizer("I'm Jack and I'm three years old")
 myStr2.addTagToDict('CONN', 'and')
+print myStr2.getOrinalStr()
+print myStr2.getUntaggedStr()
+print myStr2.getTagStr()
+print myStr2.getSubStr()
+myStr2.removeTagFromDict('jack')
 print myStr2.getOrinalStr()
 print myStr2.getUntaggedStr()
 print myStr2.getTagStr()
