@@ -17,3 +17,7 @@ class AweberTest(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
+
+# Uncomment the below if running using python.  Otherwise run the test using nosetests.
+# if __name__ == "__main__":
+#     unittest.main()
