@@ -2,6 +2,7 @@ import unittest
 from myTagProcessor import Taggerizer
 
 class TestTagProcessor(unittest.TestCase):
+    global testObj, anotherObj
     testObj = Taggerizer("I am Jack and I am three years old")
     anotherObj = Taggerizer("  This is Jill's and Jack's sentence with leading and trailing spaces.   ")
 
