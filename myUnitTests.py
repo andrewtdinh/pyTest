@@ -7,10 +7,13 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_getOriginalStr(self):
         self.assertEqual(testObj.getOrinalStr(), 'I am Jack and I am three years old')
-        self.assertEqual(anotherObj .getOrinalStr(), "  This is Jill's and Jack's sentence with leading and trailing spaces.   ")
+        self.assertEqual(anotherObj.getOrinalStr(), "  This is Jill's and Jack's sentence with leading and trailing spaces.   ")
 
     def test_getUntaggedStr(self):
         self.assertEqual(testObj.getUntaggedStr(), 'i and old am years')
 
     def test_getTagStr(self):
-        self.assertEqual(testObj.getUntaggedStr(), 'I am Jack and I am three years old')
+        self.assertEqual(testObj.getTagStr(), 'jack three')
+
+    def test_getSubStr(self):
+        self.assertEqual(testObj.getSubStr(), 'i am NAME and i am NUM years old')
