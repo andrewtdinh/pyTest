@@ -17,3 +17,6 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_getSubStr(self):
         self.assertEqual(testObj.getSubStr(), 'i am NAME and i am NUM years old')
+
+if __name__ == '__main__':
+    unittest.main()
