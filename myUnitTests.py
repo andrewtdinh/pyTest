@@ -8,6 +8,9 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_getDictKey(self):
         self.assertEqual(testObj.getDictKey('jack'), 'NAME')
+        self.assertEqual(testObj.getDictKey('jill'), 'NAME')
+        self.assertEqual(testObj.getDictKey('three'), 'NUM')
+
 
     def test_getOriginalStr(self):
         self.assertEqual(testObj.getOrinalStr(), 'I am Jack and I am three years old')
