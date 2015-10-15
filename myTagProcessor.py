@@ -49,7 +49,7 @@ class Taggerizer:
 
     # This method will return key-substituted string
     def getSubStr(self):
-        return ' '.join(self.replacedStr)
+        return "'".join(' '.join(self.replacedStr).split(" '"))
 
     # This method will add a tag to a key-value pair and then re-initialize the object
     def addTagToDict(self, key, tag):
