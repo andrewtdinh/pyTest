@@ -15,7 +15,7 @@ class Taggerizer:
         self.replacedStr = []
 
         # Convert everything in the string to lower case and split into list of terms
-        terms = " '".join(self.originalStr.lower().split("'")).split(' ')
+        terms = " '".join(self.originalStr.strip().lower().split("'")).split(' ')
         for term in terms:
             foundKey = self.getDictKey(term)
 
