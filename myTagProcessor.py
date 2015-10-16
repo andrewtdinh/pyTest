@@ -17,7 +17,7 @@ class Taggerizer:
         specialChars = ["'", ",", "."]
         processedInStr = inputString
         for ch in specialChars:
-            processedInStr = processedInStr
+            processedInStr = ' '.join(processedInStr.strip().lower().split(ch))
         # Convert everything in the string to lower case and split into list of terms
         terms = " '".join(self.originalStr.strip().lower().split("'")).split(' ')
         for term in terms:
