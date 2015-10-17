@@ -19,21 +19,22 @@ class Taggerizer:
         for ch in specialChars:
             processedInStr = ' '.join(processedInStr.strip().lower().split(ch))
         # Convert everything in the string to lower case and split into list of terms
-        terms = processedInStr.strip().split(' ')
+        terms = processedInStr.split(' ')
         for term in terms:
-            foundKey = self.getDictKey(term)
+            if term:
+                foundKey = self.getDictKey(term)
 
-            # If a tag is found in our tag dictionary:
-            if foundKey:
-                # We add the search term into the set of tags
-                self.taggedTerms.add(term)
-                # We add the returned key to the list of replaced string
-                self.replacedStr.append(foundKey)
-            else:
-                # Else we just add the search term to the list of replaced string
-                self.replacedStr.append(term)
-                # And also add the search term into the set of non-tags
-                self.untaggedTerms.add(term)
+                # If a tag is found in our tag dictionary:
+                if foundKey:
+                    # We add the search term into the set of tags
+                    self.taggedTerms.add(term)
+                    # We add the returned key to the list of replaced string
+                    self.replacedStr.append(foundKey)
+                else:
+                    # Else we just add the search term to the list of replaced string
+                    self.replacedStr.append(term)
+                    # And also add the search term into the set of non-tags
+                    self.untaggedTerms.add(term)
 
     # This will be used later to search for and get the key in the tagDict
     def getDictKey(self, term):
@@ -71,7 +72,7 @@ class Taggerizer:
         self.__init__(self.originalStr)
 
 myStr = Taggerizer("I am Jack and I am three years old")
-myStr3 = Taggerizer("  This is Jill's and Jack's sentence with leading and trailing spaces.   ")
+myStr3 = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
 print myStr.getOrinalStr()
 print myStr.getUntaggedStr()
 print myStr.getTagStr()
