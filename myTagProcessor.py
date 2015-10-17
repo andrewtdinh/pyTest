@@ -19,7 +19,7 @@ class Taggerizer:
         for ch in specialChars:
             processedInStr = ' '.join(processedInStr.strip().lower().split(ch))
         # Convert everything in the string to lower case and split into list of terms
-        terms = " '".join(self.originalStr.strip().lower().split("'")).split(' ')
+        terms = processedInStr.split(' ')
         for term in terms:
             foundKey = self.getDictKey(term)
 
