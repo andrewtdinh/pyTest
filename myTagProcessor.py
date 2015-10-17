@@ -42,7 +42,10 @@ class Taggerizer:
 
     # This method will return the original string
     def getOrinalStr(self):
-        return self.originalStr
+        substitutedStr = self.originalStr
+        for tag in self.taggedTerms:
+            substitutedStr = substitutedStr.replace(tag, self.getDictKey(tag))
+        return substitutedStr.strip()
 
     # This method will return the non-tag terms
     def getUntaggedStr(self):
@@ -54,7 +57,8 @@ class Taggerizer:
 
     # This method will return key-substituted string
     def getSubStr(self):
-        return "'".join(' '.join(self.replacedStr).split(" '"))
+        # return "'".join(' '.join(self.replacedStr).split(" '"))
+        return self.originalStr
 
     # This method will add a tag to a key-value pair and then re-initialize the object
     def addTagToDict(self, key, tag):
