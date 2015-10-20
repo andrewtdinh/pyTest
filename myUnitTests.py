@@ -25,6 +25,7 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_getTagStr(self):
         self.assertEqual(testObj.getTagStr(), 'jack three')
+        self.assertEqual(anotherObj.getTagStr(), 'jill jack')
 
     def test_getSubStr(self):
         self.assertEqual(testObj.getSubStr(), 'I am NAME and I am NUM years old')
