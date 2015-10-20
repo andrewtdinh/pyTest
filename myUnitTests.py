@@ -21,6 +21,7 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_getUntaggedStr(self):
         self.assertEqual(testObj.getUntaggedStr(), 'i and old am years')
+        self.assertEqual(anotherObj.getUntaggedStr(), 'and trailing sentence this leading is s spaces with')
 
     def test_getTagStr(self):
         self.assertEqual(testObj.getTagStr(), 'jack three')
