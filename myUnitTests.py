@@ -4,7 +4,7 @@ from myTagProcessor import Taggerizer
 class TestTagProcessor(unittest.TestCase):
     global testObj, anotherObj
     testObj = Taggerizer("I am Jack and I am three years old")
-    anotherObj = Taggerizer("  This is Jill's and Jack's sentence with leading and trailing spaces.   ")
+    anotherObj = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
 
     def test_getDictKey(self):
         self.assertEqual(testObj.getDictKey('jack'), 'NAME')
@@ -17,7 +17,7 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_getOriginalStr(self):
         self.assertEqual(testObj.getOrinalStr(), 'I am Jack and I am three years old')
-        self.assertEqual(anotherObj.getOrinalStr(), "  This is Jill's and Jack's sentence with leading and trailing spaces.   ")
+        self.assertEqual(anotherObj.getOrinalStr(), "  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
 
     def test_getUntaggedStr(self):
         self.assertEqual(testObj.getUntaggedStr(), 'i and old am years')
@@ -29,6 +29,7 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_getSubStr(self):
         self.assertEqual(testObj.getSubStr(), 'I am NAME and I am NUM years old')
+        self.assertEqual(anotherObj.getSubStr(), "This is NAME's and NAME's sentence, with leading and trailing spaces.")
 
 
 if __name__ == '__main__':
