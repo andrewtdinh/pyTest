@@ -1,4 +1,5 @@
 from myTags import myDict
+import re
 
 class Taggerizer:
     global tags
@@ -57,7 +58,8 @@ class Taggerizer:
         # return "'".join(' '.join(self.replacedStr).split(" '"))
         substitutedStr = self.originalStr
         for tag in self.taggedTerms:
-            substitutedStr = substitutedStr.replace(tag, self.getDictKey(tag))
+            pattern = re.compile(tag, re.IGNORECASE)
+            substitutedStr = pattern.sub(self.getDictKey(tag), substitutedStr)
         return substitutedStr.strip()
 
     # This method will add a tag to a key-value pair and then re-initialize the object

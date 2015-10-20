@@ -23,7 +23,7 @@ class TestTagProcessor(unittest.TestCase):
         self.assertEqual(testObj.getTagStr(), 'jack three')
 
     def test_getSubStr(self):
-        self.assertEqual(testObj.getSubStr(), 'i am NAME and i am NUM years old')
+        self.assertEqual(testObj.getSubStr(), 'I am NAME and I am NUM years old')
 
 
 if __name__ == '__main__':
