@@ -36,6 +36,7 @@ class TestTagProcessor(unittest.TestCase):
         self.assertEqual(thirdObj.getOrinalStr(), "  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
         self.assertEqual(thirdObj.getUntaggedStr(), 'and trailing sentence this leading is s spaces with')
         self.assertEqual(thirdObj.getTagStr(), 'jill jack')
+        self.assertEqual(thirdObj.getSubStr(), "This is NAME's and NAME's sentence, with leading and trailing spaces.")
         thirdObj.addTagToDict('CONN', 'and')
 
 if __name__ == '__main__':
