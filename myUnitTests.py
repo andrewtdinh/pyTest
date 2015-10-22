@@ -2,10 +2,11 @@ import unittest
 from myTagProcessor import Taggerizer
 
 class TestTagProcessor(unittest.TestCase):
-    global testObj, anotherObj, thirdObj
+    global testObj, anotherObj, thirdObj, fourthObj
     testObj = Taggerizer("I am Jack and I am three years old")
     anotherObj = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
     thirdObj = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
+    fourthObj = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
 
     def test_getDictKey(self):
         self.assertEqual(testObj.getDictKey('jack'), 'NAME')
@@ -53,6 +54,13 @@ class TestTagProcessor(unittest.TestCase):
         self.assertEqual(thirdObj.getUntaggedStr(), 'trailing sentence this leading is s spaces jack with')
         self.assertEqual(thirdObj.getTagStr(), 'and jill')
         self.assertEqual(thirdObj.getSubStr(), "This is NAME's CONN Jack's sentence, with leading CONN trailing spaces.")
+
+    def test_removeKeyFromDict(self):
+        self.assertEqual(fourthObj.getOrinalStr(), "  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
+        self.assertEqual(fourthObj.getUntaggedStr(), 'and trailing sentence this leading is s spaces with')
+        self.assertEqual(fourthObj.getTagStr(), 'jill jack')
+        self.assertEqual(fourthObj.getSubStr(), "This is NAME's and NAME's sentence, with leading and trailing spaces.")
+        # thirdObj.removeTagFromDict('jack')
 
 if __name__ == '__main__':
     unittest.main()
