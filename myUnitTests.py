@@ -6,7 +6,7 @@ class TestTagProcessor(unittest.TestCase):
     testObj = Taggerizer("I am Jack and I am three years old")
     anotherObj = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
     thirdObj = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
-    fourthObj = Taggerizer("  This is Jill's and Jack's sentence, with leading and trailing spaces.   ")
+    fourthObj = Taggerizer("This is Jill's and Jack's sentence, with three trailing spaces.   ")
 
     def test_getDictKey(self):
         self.assertEqual(testObj.getDictKey('jack'), 'NAME')
