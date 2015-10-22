@@ -57,7 +57,7 @@ class TestTagProcessor(unittest.TestCase):
 
     def test_removeKeyFromDict(self):
         self.assertEqual(fourthObj.getOrinalStr(), "This is Jill's and Jack's sentence, with three trailing spaces.   ")
-        self.assertEqual(fourthObj.getUntaggedStr(), 'and trailing sentence this leading is s spaces with')
+        self.assertEqual(fourthObj.getUntaggedStr(), 'and sentence this trailing is s spaces with')
         self.assertEqual(fourthObj.getTagStr(), 'jill jack')
         self.assertEqual(fourthObj.getSubStr(), "This is NAME's and NAME's sentence, with leading and trailing spaces.")
         # thirdObj.removeTagFromDict('jack')
