@@ -63,7 +63,7 @@ class TestTagProcessor(unittest.TestCase):
         fourthObj.removeKeyFromDict('NUM')
         self.assertEqual(fourthObj.getOrinalStr(), "This is Jill's and Jack's sentence, with three trailing spaces.   ")
         self.assertEqual(fourthObj.getUntaggedStr(), 'sentence this trailing is three s spaces with')
-        self.assertEqual(fourthObj.getTagStr(), 'jill jack three')
+        self.assertEqual(fourthObj.getTagStr(), 'jill jack')
         self.assertEqual(fourthObj.getSubStr(), "This is NAME's and NAME's sentence, with NUM trailing spaces.")
 
 if __name__ == '__main__':

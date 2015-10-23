@@ -28,4 +28,4 @@ class myDict:
 
     # Method to remove a key-value pair from the dictionary
     def removeKeyValuePair(self, key):
-        self.tagDict.pop(key, None)
+        del self.tagDict[key]
